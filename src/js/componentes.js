@@ -8,6 +8,8 @@ const divTodoList = document.querySelector('.todo-list');
 const textoInput = document.querySelector('.new-todo');
 const btnBorrar = document.querySelector('.clear-completed');
 const ulFiltros = document.querySelector('.filters');
+const btnSwitch = document.querySelector('.switch');
+const dark = document.querySelector('body');
 export const pendientesPuntos = document.querySelector('.todo-count');
 
 
@@ -16,7 +18,8 @@ export const crearTodoHtml = (todo) =>{
             <li class="${(todo.comp)?'completed':''}" data-id="${todo.id}">
 						<div class="view">
 							<input class="toggle" type="checkbox" ${(todo.comp)?'checked':''}>
-							<textarea>${todo.tarea} ${todo.creado}</textarea>
+                            <textarea>${todo.tarea}</textarea>
+                            <label>Creado ${todo.creado}</label>
 							<button class="destroy"></button>
 						</div>
 						<input class="edit" value="Create a TodoMVC template">
@@ -116,3 +119,7 @@ ulFiltros.addEventListener('click',(event)=>{
     }
 });
 
+btnSwitch.addEventListener('click',()=>{
+    btnSwitch.classList.toggle('active');
+    dark.classList.toggle('dark');
+});

@@ -17,7 +17,7 @@ export class Todo{
         this.tarea=tarea;
         this.id = new Date().getTime();
         this.comp= false;
-        this.creado =moment();
+        this.creado =moment().format('MMMM Do YYYY, h:mm:ss a');
     }
     tareas(id){
         return id.getHours();

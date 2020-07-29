@@ -17,6 +17,7 @@ body{
 }
 
 
+
 button {
 	background-color: #b83f45;
 	color: #ffffff;
@@ -28,20 +29,20 @@ button {
 	color: #b83f45;
 }
 
-:focus {
-	outline: 0;
-}
 
 .hidden {
 	display: none;
 }
 
 .todoapp {
-	background: #fff;
+	border-radius: 10px;
+	background: #ffffff;
 	margin: 130px 0 40px 0;
 	position: relative;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
 	            0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}.todoapp .dark{
+	background: #111111;
 }
 
 .todoapp input::-webkit-input-placeholder {
@@ -70,9 +71,6 @@ button {
 	font-weight: 200;
 	text-align: center;
 	color: #b83f45;
-	-webkit-text-rendering: optimizeLegibility;
-	-moz-text-rendering: optimizeLegibility;
-	text-rendering: optimizeLegibility;
 }
 
 .new-todo,
@@ -109,7 +107,7 @@ button {
 .toggle-all {
 	width: 1px;
 	height: 1px;
-	border: none; /* Mobile Safari */
+	border: none; 
 	opacity: 0;
 	position: absolute;
 	right: 100%;
@@ -173,21 +171,23 @@ button {
 	border: none;
 	box-sizing: border-box;
 	resize: none;
-	overflow:hidden;
-
+	
 }
 
+label{
+	color: #999;
+	font-size: 10px;
+	padding: 0 0 0 10px;
+}
 .todo-list li .toggle {
+	box-sizing: border-box;
 	text-align: center;
 	width: 100%;
-	max-width: inherit;
-	/* auto, since non-WebKit browsers doesn't support input styling */
-	height: auto;
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	margin: auto 0;
-	border: none; /* Mobile Safari */
+	margin: auto ;
+	border: none;
 	-webkit-appearance: none;
 	appearance: none;
 }
@@ -197,10 +197,6 @@ button {
 }
 
 .todo-list li .toggle + textarea {
-	/*
-		Firefox requires `#` to be escaped - https://bugzilla.mozilla.org/show_bug.cgi?id=922433
-		IE and Edge requires *everything* to be escaped to render, so we do that instead of just the `#` - https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/7157459/
-	*/
 	background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23ededed%22%20stroke-width%3D%223%22/%3E%3C/svg%3E');
 	background-repeat: no-repeat;
 	background-position: center left;
@@ -211,9 +207,7 @@ button {
 }
 
 .todo-list li textarea {
-	word-break: break-all;
 	padding: 15px 15px 15px 60px;
-	display: inline-block;
 	line-height: 1.2;
 	transition: color 0.4s;
 	font-weight: 400;
@@ -231,17 +225,16 @@ button {
 
 .todo-list li .destroy {
 	color: #b83f45;
-	display: none;
 	position: absolute;
-	top: 0;
-	right: 10px;
+	top:20px;
+	right:0;
 	bottom: 0;
 	width: 40px;
 	height: 40px;
-	margin: auto 0;
 	font-size: 30px;
-	margin-bottom: 11px;
 	transition: color 0.2s ease-out;
+	display:none;
+	margin: 5px;
 }
 
 .destroy{
@@ -274,6 +267,7 @@ button {
 	border-top: 1px solid #e6e6e6;
 	display: flex;
 	flex-wrap: wrap;
+	flex-grow: inherit;
 }
 
 /*.footer:before {
@@ -303,7 +297,9 @@ button {
 	list-style: none;
 	display: flex;
 	justify-content: center;
-	flex-direction: row;
+	flex-wrap: nowrap;
+	margin: 0;
+	padding: 0;
 }
 
 
@@ -328,8 +324,6 @@ button {
 
 .clear-completed,
 html .clear-completed:active {
-	float: right;
-	position: relative;
 	line-height: 20px;
 	text-decoration: none;
 	cursor: pointer;
@@ -338,6 +332,24 @@ html .clear-completed:active {
 .clear-completed:hover {
 	text-decoration: underline;
 }
+
+@media only screen and (max-width:600px){
+	.filters{
+		text-align: center;
+	}
+	.new-todo{
+		font-size: 20px;
+	}
+	.footer{
+		flex-wrap: nowrap;
+		flex-direction: column;
+	}
+	.container{
+		max-width: 300px;
+	}
+}
+
+
 
 /*.info {
 	margin: 65px auto 0;

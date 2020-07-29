@@ -1,6 +1,7 @@
 import{Todo,TodoList} from './js/imports.class';
 import './styles.css';
 import './css/normalize.css';
+import './css/componentes.css';
 import { crearTodoHtml } from './js/componentes';
 
 export const todoList = new TodoList();
