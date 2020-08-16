@@ -1,26 +1,18 @@
-import{Todo,TodoList} from './js/imports.class';
-import './styles.css';
-import './css/normalize.css';
-import './css/componentes.css';
-import { crearTodoHtml } from './js/componentes';
+//import {promesaLenta,promesaMedia,promesaRapida} from './Promise.race'; 
+//import {buscaHeroe, buscarHeroeAsync, buscarHeroe} from './Promesas';
+import {obtenerHeroesArr} from './Await';
+//promesaLenta.then( console.log)//promesaMedia.then( console.log)
+//romesaRapida.then( console.log)
+/**Promes.race es un metodo que nos permite obtener el valor o mensaje de todas las promesas y obtener el que se resuelve mas rapido de ellas.  
+ * Si una de las promesas da un error javascript va hacer que la promesa sea ignorada osea la que da el error. 
+*/
+//Promise.race([promesaLenta,promesaMedia,promesaRapida])
+//.then(console.log)
+//.catch(console.warn)
+//buscarHeroe('capi ').then(console.log).catch(console.warn);
 
-export const todoList = new TodoList();
-console.log(todoList.todos); 
-const tarea = new Todo();
-console.log(tarea);
-//Instruccion accede a los todo list y los contruye uno por uno
-todoList.todos.forEach(todo => crearTodoHtml(todo) );
+//buscarHeroeAsync('iron2').then(console.log).catch(console.warn);
 
-console.log(typeof(todoList.todos));
-//const newTodo = new Todo('Aprender javascript');
+const heroes1 = obtenerHeroesArr();
 
-//todoList.nuevoTodo(newTodo);
-
-//todoList.nuevoTodo(tarea);
-
-//console.log(todoList);
-//tarea.comp = true;
-
-//crearTodoHtml(tarea);
-
-//console.log(tarea);
+console.log(heroes1)
